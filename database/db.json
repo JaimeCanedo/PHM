@@ -1,0 +1,16 @@
+{
+  "refacciones": [
+    {
+      "id": "1",
+      "nombre": "Frenos",
+      "categoria": "Mecánica",
+      "precio": 100
+    },
+    {
+      "id": "7c28",
+      "nombre": "Filtro de aire para XR 150L",
+      "categoria": "Motor",
+      "precio": 150
+    }
+  ]
+}
