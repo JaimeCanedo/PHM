@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es-mx">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Gestión de refacciones</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+    <div data-role="page" id="login">
+        <div data-role="header">
+            <h1>Iniciar Sesión</h1>
+        </div>
+        <div data-role="content">
+            <form id="login-form">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required />
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required />
+                <button type="submit" data-role="button" data-theme="b">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="./js/login.js"></script>
+</body>
+</html>

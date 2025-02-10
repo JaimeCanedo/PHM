@@ -11,6 +11,18 @@
       "nombre": "Filtro de aire para XR 150L",
       "categoria": "Motor",
       "precio": 150
+    },
+    {
+      "id": "c4ad",
+      "nombre": "Cadena Reforzada",
+      "categoria": "Transmision",
+      "precio": "389"
+    },
+    {
+      "id": "9345",
+      "nombre": "Bujia",
+      "categoria": "Motor",
+      "precio": "80"
     }
   ]
 }
