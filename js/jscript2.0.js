@@ -166,7 +166,6 @@ function cargarRefacciones() {
         success: function () {
             $("#addCategoria-form")[0].reset(); // Limpiar el formulario
             cargarCategorias();
-            actualizarSelect();
              // Recargar la tabla
             $("#addModalCategoria").popup("close"); // Cerrar el modal
         },
@@ -183,7 +182,6 @@ function cargarRefacciones() {
       method: "DELETE",
       success: function () {
         cargarCategorias();
-        actualizarSelect();
       },
       error: function (err) {
         console.error("Error al eliminar la categoria:", err);
@@ -210,7 +208,6 @@ function cargarRefacciones() {
         dataType: "json",
         success: function () {        
           cargarCategorias();
-          actualizarSelect();
           $("#updateModalCategoria").popup('close');
         },
         error: function (err) {
@@ -220,28 +217,8 @@ function cargarRefacciones() {
     });
   }
 
-  async function actualizarSelect() {
-    try {
-        const respuesta = await fetch("https://phm-32v9.onrender.com/categorias/");
-        const datos = await respuesta.json();
-        
-        const select = document.getElementById("categoria");
-        select.innerHTML = ""; // Limpiar opciones previas
-        
-        datos.forEach(opcion => {
-            let optionElement = document.createElement("categoria");
-            optionElement.value = opcion.id;
-            optionElement.textContent = opcion.nombre;
-            select.appendChild(optionElement);
-        });
-    } catch (error) {
-        console.error("Error al obtener datos:", error);
-    }
-}
 
 
-
-  
   // Cargar las refacciones al iniciar la página
   $(document).on('pageinit', function () {
     if (!localStorage.getItem('authenticated')) {
