@@ -15,8 +15,12 @@ function cargarRefacciones() {
                       <td>${refaccion.nombre}</td>
                       <td>${refaccion.categoria}</td>
                       <td>${refaccion.precio}</td>
+                      <td>${refaccion.stock}</td>
+                      <td>${refaccion.last_price}</td>
+                      <td>${refaccion.ubicacion_almacen}</td>
+                      <td>${refaccion.disponibilidad}</td>
                       <td>
-                          <a href="#updateModal" data-rel="popup" data-transition="pop" onclick="mostrarModal('${refaccion.id}', '${refaccion.nombre}', '${refaccion.categoria}', '${refaccion.precio}')">Editar</a>
+                          <a href="#updateModal" data-rel="popup" data-transition="pop" onclick="mostrarModal('${refaccion.id}', '${refaccion.nombre}', '${refaccion.categoria}', '${refaccion.precio}', '${refaccion.stock}', '${refaccion.last_price}', '${refaccion.ubicacion_almacen}', '${refaccion.disponibilidad}')">Editar</a>
                           <a href="#" onclick="eliminarRefaccion('${refaccion.id}')">Eliminar</a>
                       </td>
                     </tr>
@@ -38,6 +42,10 @@ function cargarRefacciones() {
         nombre: $("#nombre").val(),
         categoria: $("#categoria").val(),
         precio: $("#precio").val(),
+        stock: $("#stock").val(),
+        last_price: $("#last_price").val(),
+        ubicacion_almacen: $("#ubicacion_almacen").val(),
+        disponibilidad: $("#disponibilidad").val(),
     };
 
     $.ajax({
@@ -72,10 +80,14 @@ function cargarRefacciones() {
   }
   
   // Función para mostrar el modal con la información de la refacción
-  function mostrarModal(id, nombre, categoria, precio) {
+  function mostrarModal(id, nombre, categoria, precio, stock, last_price, ubicacion_almacen, disponibilidad) {
     $("#update-nombre").val(nombre);
     $("#update-categoria").val(categoria);
     $("#update-precio").val(precio);
+    $("#update-stock").val(stock);
+    $("#update-last_price").val(last_price);
+    $("#update-ubicacion_almacen").val(ubicacion_almacen);
+    $("#update-disponibilidad").val(disponibilidad);
   
     $('#updateRefaccion-form').off('submit').on('submit', function(e){
       e.preventDefault();
@@ -83,6 +95,10 @@ function cargarRefacciones() {
         nombre: $("#update-nombre").val(),
         categoria: $("#update-categoria").val(),
         precio: $("#update-precio").val(),
+        stock: $("#update-stock").val(),
+        last_price: $("#update-last_price").val(),
+        ubicacion_almacen: $("#update-ubicacion_almacen").val(),
+        disponibilidad: $("#update-disponibilidad").val(),
       };
       $.ajax({
         url: 'https://phm-32v9.onrender.com/refacciones/${id}',

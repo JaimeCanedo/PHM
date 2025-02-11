@@ -3,26 +3,61 @@
     {
       "id": "1",
       "nombre": "Frenos",
-      "categoria": "Mecánica",
-      "precio": 100
+      "categoria": 3,
+      "precio": 100,
+      "stock": 10,
+      "last_price": 95,
+      "ubicacion_almacen": "Almacen",
+      "disponibilidad": "Disponible"
     },
     {
       "id": "7c28",
       "nombre": "Filtro de aire para XR 150L",
-      "categoria": "Motor",
-      "precio": 150
+      "categoria": 1,
+      "precio": 150,
+      "stock": 15,
+      "last_price": 120,
+      "ubicacion_almacen": "Almacen",
+      "disponibilidad": "Disponible"
     },
     {
       "id": "c4ad",
       "nombre": "Cadena Reforzada",
-      "categoria": "Transmision",
-      "precio": "389"
+      "categoria": 2,
+      "precio": "389",
+      "stock": 5,
+      "last_price": 345,
+      "ubicacion_almacen": "Almacen",
+      "disponibilidad": "Disponible"
     },
     {
       "id": "9345",
       "nombre": "Bujia",
-      "categoria": "Motor",
-      "precio": "80"
+      "categoria": 1,
+      "precio": "80",
+      "stock": 25,
+      "last_price": 90,
+      "ubicacion_almacen": "Almacen",
+      "disponibilidad": "Disponible"
+    }
+  ],
+  "categorias": [
+    {
+      "id": "1",
+      "nombre": "Motor",
+      "descripcion": "Refacciones para el motor"
+    },
+    {
+      "id": "2",
+      "nombre": "Trasmision",
+      "descripcion": "Refacciones para la tramision"
+    },
+    {
+      "id": "3",
+      "nombre": "Mécanica",
+      "descripcion": "Refacciones para la mécanica"
     }
   ]
 }
+
+  

@@ -16,24 +16,6 @@
             <a href="#addModal" id="add-btn" data-role="button" data-rel="popup" data-transition="pop" data-theme="c">Agregar Refacción</a>
         </div>
         <div data-role="content">
-            <!-- Formulario para agregar refacciones-->
-            <!-- <section class="form-section">
-                <h2>Agregar refacción</h2>
-                <form id="refaccion-form">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required />
-                    <label for="categoria">Categoria:</label>
-                    <select id="categoria" name="categoria" required>
-                        <option value="">Seleccione una categoría</option>
-                        <option value="Motor">Motor</option>
-                        <option value="Transmision">Transmisión</option>
-                        <option value="Frenos">Frenos</option>
-                    </select>
-                    <label for="precio">Precio:</label>
-                    <input type="number" id="precio" name="precio" required />
-                    <button type="submit" data-role="button" data-theme="b">Agregar refacción</button>
-                </form>
-            </section> -->
             <!-- Listado de refacciones -->
             <section class="list-section">
                 <h2>Listado de refacciones</h2>
@@ -43,6 +25,11 @@
                             <th>Nombre</th>
                             <th>Categoría</th>
                             <th>Precio</th>
+                            <th>Categoria</th>
+                            <th>Stock</th>
+                            <th>Ultimo precio</th>
+                            <th>Ubicación en almacen</th>
+                            <th>Disponibilidad</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -66,6 +53,14 @@
                         </select>
                         <label for="update-precio">Precio:</label>
                         <input type="number" id="update-precio" name="update-precio" required />
+                        <label for="update-stock">Stock:</label>
+                        <input type="number" id="stock" name="stock" required />
+                        <label for="update-last_price">Ultimo precio:</label>
+                        <input type="number" id="last_price" name="last_price" required />
+                        <label for="update-ubicacion_almacen">Ubicación en almacen:</label>
+                        <input type="text" id="ubicacion_almacen" name="ubicacion_almacen" required />
+                        <label for="update-disponibilidad">Disponibilidad:</label>
+                        <input type="text" id="disponibilidad" name="disponibilidad" required />
                         <button type="submit" data-role="button" data-theme="b">Guardar cambios</button>
                     </form>
                     <a href="#" id="logout-btn" data-role="button" data-rel="back" data-theme="c">Cerrar</a>
@@ -87,10 +82,48 @@
                 </select>
                     <label for="precio">Precio:</label>
                     <input type="number" id="precio" name="precio" required />
+                    <label for="stock">Stock:</label>
+                    <input type="number" id="stock" name="stock" required />
+                    <label for="last_price">Ultimo precio:</label>
+                    <input type="number" id="last_price" name="last_price" required />
+                    <label for="ubicacion_almacen">Ubicación en almacen:</label>
+                    <input type="text" id="ubicacion_almacen" name="ubicacion_almacen" required />
+                    <label for="disponibilidad">Disponibilidad:</label>
+                    <input type="text" id="disponibilidad" name="disponibilidad" required />
                     <button type="submit" data-role="button" data-theme="b">Guardar</button>
                 </form>
                 <a href="#" data-role="button" data-rel="back" data-theme="c">Cerrar</a>
             </div>
+</div>
+
+<!--Modal para actualizar categorias-->
+<div id="updateModalCategoria" data-role="popup" class="ui-content" style="max-width: 400px;">
+    <div class="modal-content">
+        <h2>Editar categoria</h2>
+        <form id="updateCategoria-form">
+            <label for="update-nombre-categoria">Nombre:</label>
+            <input type="text" id="update-nombre-categoria" name="update-nombre-categoria" required />
+            <label for="update-descripcion-categoria">Descripcion:</label>
+            <input type="text" id="update-descripcion-categoria" name="update-descripcion-categoria" required />
+            <button type="submit" data-role="button" data-theme="b">Guardar cambios</button>
+        </form>
+        <a href="#" id="logout-btn" data-role="button" data-rel="back" data-theme="c">Cerrar</a>
+    </div>
+</div>
+
+<!-- Modal para agregar categorias -->
+<div id="addModalCategoria" data-role="popup" class="ui-content" style="max-width: 400px;">
+    <div class="modal-content">
+    <h2>Agregar categoria</h2>
+    <form id="addCategoria-form">
+            <label for="nombre-categoria">Nombre:</label>
+            <input type="text" id="nombre-categoria" name="nombre-categoria" required />
+        <label for="descripcion-categoria">Descripcion:</label>
+        <input type="text" id="descripcion-categoria" name="descripcion-categoria" required />
+        <button type="submit" data-role="button" data-theme="b">Guardar</button>
+    </form>
+    <a href="#" data-role="button" data-rel="back" data-theme="c">Cerrar</a>
+</div>
 </div>
 
         </div>
