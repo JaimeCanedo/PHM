@@ -116,6 +116,109 @@ function cargarRefacciones() {
       });
     });
   }
+
+
+
+  function cargarCategorias() {
+    $.ajax({
+      url: "https://phm-32v9.onrender.com/categorias",
+      method: "GET",
+      success: function (data) {
+        const tbody = $("#categorias-tbody");
+        tbody.empty();
+  
+        data.forEach((categoria) => {
+          const row = `
+                  <tr>
+                      <td>${categoria.nombre}</td>
+                      <td>${categoria.descripcion}</td>
+                      <td>
+                          <a href="#updateModalCategoria" data-rel="popup" data-transition="pop" onclick="mostrarModalCategoria('${categoria.id}', '${categoria.nombre}', '${categoria.descripcion}')">Editar</a>
+                          <a href="#" onclick="eliminarCategoria('${categoria.id}')">Eliminar</a>
+                      </td>
+                    </tr>
+          `;
+          tbody.append(row);
+        });
+      },
+      error: function (xhr, status, error) {
+        console.error("Error al cargar las categorias:", error);
+      },
+    });  
+  }
+  
+  // Función para agregar una categoria a la BD
+  $("#addCategoria-form").on("submit", function (e) {
+    e.preventDefault();
+
+    const refaccion = {
+        nombre: $("#nombre-categoria").val(),
+        descripcion: $("#descripcion-categoria").val(),
+    };
+
+    $.ajax({
+        url: "https://phm-32v9.onrender.com/categorias",
+        method: "POST",
+        data: JSON.stringify(refaccion),
+        contentType: "application/json",
+        dataType: "json",
+        success: function () {
+            $("#addCategoria-form")[0].reset(); // Limpiar el formulario
+            cargarCategorias(); // Recargar la tabla
+            $("#addModalCategoria").popup("close"); // Cerrar el modal
+        },
+        error: function (err) {
+            console.error("Error al agregar la refacción:", err);
+        },
+    });
+});
+  
+  // Función para eliminar una refacción
+  function eliminarCategoria(id) {
+    $.ajax({
+      url: 'https://phm-32v9.onrender.com/categorias/${id}',
+      method: "DELETE",
+      success: function () {
+        cargarCategorias();
+      },
+      error: function (err) {
+        console.error("Error al eliminar la categoria:", err);
+      },
+    });
+  }
+  
+  // Función para mostrar el modal con la información de la refacción
+  function mostrarModal(id, nombre, descripcion) {
+    $("#update-nombre-categoria").val(nombre);
+    $("#update-descripcion-categoria").val(descripcion);
+  
+    $('#updateCategoria-form').off('submit').on('submit', function(e){
+      e.preventDefault();
+      const updatedCategoria = {
+        nombre: $("#update-nombre-categoria").val(),
+        categoria: $("#update-descripcion-categoria").val(),
+      };
+      $.ajax({
+        url: 'https://phm-32v9.onrender.com/categorias/${id}',
+        method: "PATCH",
+        data: JSON.stringify(updatedCategoria),
+        contentType: "application/json",
+        dataType: "json",
+        success: function () {        
+          cargarCategorias();
+          $("#updateModalCategoria").popup('close');
+        },
+        error: function (err) {
+          console.error("Error al actualizar la refacción:", err);
+        },
+      });
+    });
+  }
+
+
+
+
+
   
   // Cargar las refacciones al iniciar la página
   $(document).on('pageinit', function () {
@@ -123,6 +226,7 @@ function cargarRefacciones() {
       window.location.href = 'login.html';
   }
   cargarRefacciones();
+  cargarCategorias();
   $('#logout-btn').on('click', function() {
     localStorage.removeItem('authenticated');
     window.location.href = 'login.html';
