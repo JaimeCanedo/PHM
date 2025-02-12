@@ -3,7 +3,7 @@ console.log("jscript.js ha sido cargado correctamente");
 
 function cargarRefacciones() {
     $.ajax({
-      url: "https://phm-32v9.onrender.com/refacciones",
+      url: `https://phm-32v9.onrender.com/refacciones`,
       method: "GET",
       success: function (data) {
         const tbody = $("#refacciones-tbody");
@@ -68,7 +68,7 @@ function cargarRefacciones() {
   // Función para eliminar una refacción
   function eliminarRefaccion(id) {
     $.ajax({
-      url: 'https://phm-32v9.onrender.com/refacciones/${id}',
+      url: `https://phm-32v9.onrender.com/refacciones/${id}`,
       method: "DELETE",
       success: function () {
         cargarRefacciones();
@@ -101,7 +101,7 @@ function cargarRefacciones() {
         disponibilidad: $("#update-disponibilidad").val(),
       };
       $.ajax({
-        url: 'https://phm-32v9.onrender.com/refacciones/${id}',
+        url: `https://phm-32v9.onrender.com/refacciones/${id}`,
         method: "PATCH",
         data: JSON.stringify(updatedRefaccion),
         contentType: "application/json",
@@ -178,7 +178,7 @@ function cargarRefacciones() {
   // Función para eliminar una refacción
   function eliminarCategoria(id) {
     $.ajax({
-      url: 'https://phm-32v9.onrender.com/categorias/${id}',
+      url: `https://phm-32v9.onrender.com/categorias/${id}`,
       method: "DELETE",
       success: function () {
         cargarCategorias();
@@ -201,7 +201,7 @@ function cargarRefacciones() {
         categoria: $("#update-descripcion-categoria").val(),
       };
       $.ajax({
-        url: 'https://phm-32v9.onrender.com/categorias/${id}',
+        url: `https://phm-32v9.onrender.com/categorias/${id}`,
         method: "PATCH",
         data: JSON.stringify(updatedCategoria),
         contentType: "application/json",
